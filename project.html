@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        body {
+            width: 100vw;
+            height: 10vh;
+        }
+
+        .body {
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            margin-top: 50px;
+        }
+
+        .input {
+            width: 46%;
+        }
+
+        textarea {
+            width: 100%;
+            height: 350px;
+            background-color: rgb(207, 155, 57);
+            outline: none;
+            resize: none;
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 10px;
+            border: none;
+
+        }
+        textarea::placeholder{
+            font-size: 30px;
+            font-style: italic;
+        }
+
+        .output {
+            width: 46%;
+            height: 350px;
+            background-color: rgb(207, 155, 57);
+            color: white;
+            padding: 10px;
+            box-sizing: border-box;
+            font-size: 24px;
+            font-family: 'Poppins', sans-serif;
+            border-radius: 10px;
+
+        }
+        nav{
+            width: 100vw;
+            height: 60px;
+            background-color:rgb(207, 155, 57) ;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-family: 'Open Sans', sans-serif;
+            color: white;
+            font-weight: bold
+            
+            
+        }
+        button{
+            padding: 7px 30px;
+            font-size: 25px;
+            outline: none;
+            border: none;
+            border: 1px solid rgb(207, 155, 57);
+            border-radius: 8px;
+            background-color:rgb(207, 155, 57); 
+            
+        }
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Poppins:ital,wght@1,300&display=swap');
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@1&family=Poppins:ital,wght@1,300&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <nav>Shuffle Text Lines</nav>
+    <div class="body">
+        <div class="input">
+            <textarea placeholder="Type or paste your lines here!" name="" id="textarea" cols="30" rows="10"></textarea>
+        </div>
+        <div class="output" ></div>
+
+    </div>
+
+  <div style="text-align: center; margin-top: 10px
+  ;" >  <button onclick="Shuffle_textarea()" >Shuffle</button></div>
+
+    <script>
+//         javascript
+// python
+// java
+// C++
+// Ruby
+// Kotlin
+// CSS
+// HTML
+
+         function Shuffle_textarea(){
+            const textarea = document.getElementById("textarea");
+        const output  = document.querySelector(".output");
+
+        function ShuffleAry(ary){
+            for (let i = ary.length -1; i > 0; i--) {
+                let j = Math.floor(Math.random() * i);
+
+                [ary[i] , ary[j]] = [ary[j] , ary[i]];
+               
+                return ary;
+                
+            }
+        }
+        const array = ["javascript" , "python", "java" , "C++" , "Ruby" , "Kotlin" , "CSS" , "HTML"]
+
+        
+
+        const save_shuffled = ShuffleAry(textarea.value.split("\n"))
+        console.log(ShuffleAry(textarea.value.split("\n")));
+
+        let element = ""
+        for (let x = 0; x < save_shuffled.length; x++) {
+             element += save_shuffled[x] + "<br/>";
+            
+        }
+        output.innerHTML = element;
+
+
+         }
+       
+
+
+    </script>
+</body>
+
+</html>
